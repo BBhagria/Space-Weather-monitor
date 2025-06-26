@@ -22,7 +22,7 @@ const ApodDetail = () => {
   useEffect(() => {
     const fetchApod = async () => {
       try {
-        const res = await fetch('http://localhost:5000/apod');
+        const res = await fetch('https://nasa-explorer-dash.onrender.com/apod');
         const data = await res.json();
         setApodData(data);
       } catch (err) {

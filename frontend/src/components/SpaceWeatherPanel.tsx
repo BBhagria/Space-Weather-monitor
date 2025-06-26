@@ -51,7 +51,7 @@ const SpaceWeatherPanel: React.FC = () => {
         const allEvents = [];
 
         for (const { type, name } of eventTypes) {
-          const res = await fetch(`http://localhost:5000/donki?eventType=${type}&startDate=${start}&endDate=${end}`);
+          const res = await fetch(`https://nasa-explorer-dash.onrender.com/donki?eventType=${type}&startDate=${start}&endDate=${end}`);
           const data = await res.json();
 
           data.forEach((event: any) => {

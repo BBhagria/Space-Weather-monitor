@@ -21,7 +21,7 @@ const Index = () => {
     const formattedDate = yesterday.toISOString().split('T')[0]; // YYYY-MM-DD
 
     try {
-      const res = await fetch(`http://localhost:5000/apod?date=${formattedDate}`);
+      const res = await fetch(`https://nasa-explorer-dash.onrender.com/apod?date=${formattedDate}`);
       const data = await res.json();
       setApodBackground(data.url);
       setApodTitle(data.title);
