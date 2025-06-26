@@ -8,7 +8,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const NASA_API_KEY = process.env.NASA_API_KEY;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://nasa-explorer-dash-2d9t.vercel.app' // replace with your actual Vercel domain
+}));
 
 app.get('/apod', async (req, res) => {
   const { date } = req.query;
