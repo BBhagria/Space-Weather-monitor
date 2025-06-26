@@ -8,8 +8,6 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const NASA_API_KEY = process.env.NASA_API_KEY;
 
-const cors = require('cors');
-
 const allowedOrigins = [
   'http://localhost:5000',
   'http://localhost:8080',
