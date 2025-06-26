@@ -8,9 +8,23 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const NASA_API_KEY = process.env.NASA_API_KEY;
 
+const allowedOrigins = [
+  'https://nasa-explorer-dash-2d9t.vercel.app',  // your Vercel frontend
+  'http://localhost:5173'                        // dev (if needed)
+];
+
 app.use(cors({
-  origin: '*'
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  }
 }));
+
 
 app.get('/apod', async (req, res) => {
   const { date } = req.query;
