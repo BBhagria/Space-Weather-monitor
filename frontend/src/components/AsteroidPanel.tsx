@@ -41,6 +41,9 @@ const AsteroidPanel: React.FC = () => {
           });
         }
 
+        // ✅ Sort by date descending
+        extracted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
         setAsteroids(extracted);
       } catch (err) {
         console.error('Failed to fetch asteroids:', err);
