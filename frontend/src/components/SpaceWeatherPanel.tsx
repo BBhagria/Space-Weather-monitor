@@ -87,7 +87,10 @@ const SpaceWeatherPanel: React.FC = () => {
         });
 
         // Convert to expected format
+        // Convert to expected format
         const formatted = Object.entries(grouped).map(([date, events]) => ({ date, events }));
+        // ✅ Sort by date descending (latest first)
+        formatted.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
         setSpaceWeatherData(formatted);
       } catch (error) {
         console.error('Failed to fetch space weather events:', error);
