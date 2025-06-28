@@ -13,6 +13,7 @@ const allowedOrigins = [
   'http://localhost:4173',
   'http://localhost:8080',
   'https://nasa-explorer-dash-2d9t.vercel.app',
+  'https://space-weather-monitor.vercel.app/',
   'https://nasa-explorer-dash.vercel.app/'
 ];
 
