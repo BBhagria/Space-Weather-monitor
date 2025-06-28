@@ -5,9 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import AsteroidsDetail from "./pages/AsteroidsDetail";
-import About from "./pages/About";
-import ApodDetail from "./pages/ApodDetail";
+import SpaceWeather from "./pages/SpaceWeather";
+import AsteroidMonitor from "./pages/AsteroidMonitor";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,9 +19,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/asteroids" element={<AsteroidsDetail />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/apod" element={<ApodDetail />} />
+          <Route path="/space-weather" element={<SpaceWeather />} />
+          <Route path="/asteroid-monitor" element={<AsteroidMonitor />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

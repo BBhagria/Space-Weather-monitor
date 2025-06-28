@@ -10,6 +10,7 @@ const NASA_API_KEY = process.env.NASA_API_KEY;
 
 const allowedOrigins = [
   'http://localhost:5000',
+  'http://localhost:4173',
   'http://localhost:8080',
   'https://nasa-explorer-dash-2d9t.vercel.app',
   'https://nasa-explorer-dash.vercel.app/'
