@@ -33,7 +33,7 @@ const SpaceWeather = () => {
     queryFn: async () => {
       const endDate = new Date().toISOString().split('T')[0];
       const startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-      const response = await fetch(`https://nasa-explorer-dash.onrender.com/donki?eventType=FLR&startDate=${startDate}&endDate=${endDate}`);
+      const response = await fetch(`https://space-weather-monitor.onrender.com/donki?eventType=FLR&startDate=${startDate}&endDate=${endDate}`);
       return response.json();
     },
     refetchInterval: 10000,
@@ -45,7 +45,7 @@ const SpaceWeather = () => {
     queryFn: async () => {
       const endDate = new Date().toISOString().split('T')[0];
       const startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-      const response = await fetch(`https://nasa-explorer-dash.onrender.com/donki?eventType=CME&startDate=${startDate}&endDate=${endDate}`);
+      const response = await fetch(`https://space-weather-monitor.onrender.com/donki?eventType=CME&startDate=${startDate}&endDate=${endDate}`);
       return response.json();
     },
     refetchInterval: 10000,
@@ -57,7 +57,7 @@ const SpaceWeather = () => {
     queryFn: async () => {
       const endDate = new Date().toISOString().split('T')[0];
       const startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-      const response = await fetch(`https://nasa-explorer-dash.onrender.com/donki?eventType=GST&startDate=${startDate}&endDate=${endDate}`);
+      const response = await fetch(`https://space-weather-monitor.onrender.com/donki?eventType=GST&startDate=${startDate}&endDate=${endDate}`);
       return response.json();
     },
     refetchInterval: 10000,
@@ -69,7 +69,7 @@ const SpaceWeather = () => {
     queryFn: async () => {
       const endDate = new Date().toISOString().split('T')[0];
       const startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-      const response = await fetch(`https://nasa-explorer-dash.onrender.com/donki?eventType=WSAEnlilSimulations&startDate=${startDate}&endDate=${endDate}`);
+      const response = await fetch(`https://space-weather-monitor.onrender.com/donki?eventType=WSAEnlilSimulations&startDate=${startDate}&endDate=${endDate}`);
       return response.json();
     },
     refetchInterval: 10000,

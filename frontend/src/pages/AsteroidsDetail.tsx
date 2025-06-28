@@ -33,7 +33,7 @@ const AsteroidsDetail = () => {
       const dateStr = selectedDate.toISOString().split('T')[0];
 
       try {
-        const res = await fetch(`https://nasa-explorer-dash.onrender.com/neo/feed?start_date=${dateStr}&end_date=${dateStr}`);
+        const res = await fetch(`https://space-weather-monitor.onrender.com/neo/feed?start_date=${dateStr}&end_date=${dateStr}`);
         const data = await res.json();
 
         const results: AsteroidData[] = [];
