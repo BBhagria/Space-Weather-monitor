@@ -11,7 +11,7 @@ A real-time dashboard that visualizes space weather events, near-Earth asteroid 
 ├── backend/          # Express server for proxying and securing NASA API requests
 └── README.md         # You're here!
 ```
-
+"Note: This app is hosted on Render's free tier. It may take a few seconds to wake up after a period of inactivity due to cold start."
 ---
 
 ## 🚀 Live Application
