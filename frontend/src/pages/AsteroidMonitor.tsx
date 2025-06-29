@@ -76,30 +76,38 @@ const AsteroidsDetail = () => {
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Background Starfield & Meteors */}
       <div id="starfield" className="absolute inset-0 pointer-events-none"></div>
       <div className="absolute inset-0 pointer-events-none z-50">
         {[...Array(20)].map((_, i) => <Meteor key={i} index={i} />)}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-8">
-        <div className="flex items-center mb-8">
-          <Button onClick={() => navigate('/')} variant="outline" className="mr-4 bg-black/20 border-white/30 text-white hover:bg-black/40">
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto px-4 py-10">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-center mb-10 gap-4">
+          <Button
+            onClick={() => navigate('/')}
+            variant="outline"
+            className="bg-black/20 border-white/30 text-white hover:bg-black/40"
+          >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Button>
-          <h1 className="text-4xl font-bold text-white bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-4xl font-bold text-white bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
             Detailed Asteroid Information
           </h1>
         </div>
 
-        <Card className="bg-black/30 border-orange-500/30 backdrop-blur-md mb-8">
+        {/* Date Selector */}
+        <Card className="bg-black/30 border-orange-500/30 backdrop-blur-md mb-8 max-w-xl mx-auto">
           <CardHeader>
-            <CardTitle className="text-xl text-white mb-4">Select Date for Asteroid Data</CardTitle>
+            <CardTitle className="text-lg md:text-xl text-white mb-4">Select Date for Asteroid Data</CardTitle>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
-                  className={cn("w-80 justify-start text-left font-normal bg-black/20 border-orange-500/30 text-white hover:bg-black/40")}
+                  className={cn("w-full md:w-80 justify-start text-left font-normal bg-black/20 border-orange-500/30 text-white hover:bg-black/40")}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
                   {format(selectedDate, "PPP")}
@@ -119,12 +127,16 @@ const AsteroidsDetail = () => {
           </CardHeader>
         </Card>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Asteroid Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {asteroids.map((asteroid, index) => (
-            <Card key={index} className="bg-black/30 border-orange-500/20 backdrop-blur-md hover:bg-black/40 transition-all duration-300">
+            <Card
+              key={index}
+              className="bg-black/30 border-orange-500/20 backdrop-blur-md hover:bg-black/40 transition-all duration-300 max-w-sm w-full mx-auto"
+            >
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
-                  <CardTitle className="text-xl text-white">{asteroid.name}</CardTitle>
+                  <CardTitle className="text-lg text-white">{asteroid.name}</CardTitle>
                   <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getRiskColor(asteroid.riskLevel)}`}>
                     {asteroid.riskLevel} Risk
                   </span>
@@ -133,25 +145,49 @@ const AsteroidsDetail = () => {
               </CardHeader>
               <CardContent className="space-y-4 text-sm">
                 <div className="grid grid-cols-2 gap-4">
-                  <div><span className="text-gray-400">Size:</span> <span className="text-cyan-400 ml-2">{asteroid.size}</span></div>
-                  <div><span className="text-gray-400">Speed:</span> <span className="text-green-400 ml-2">{asteroid.speed}</span></div>
-                  <div className="col-span-2"><span className="text-gray-400">Distance:</span> <span className="text-yellow-400 ml-2">{asteroid.distance}</span></div>
+                  <div>
+                    <span className="text-gray-400">Size:</span> <span className="text-cyan-400 ml-2">{asteroid.size}</span>
+                  </div>
+                  <div>
+                    <span className="text-gray-400">Speed:</span> <span className="text-green-400 ml-2">{asteroid.speed}</span>
+                  </div>
+                  <div className="col-span-2">
+                    <span className="text-gray-400">Distance:</span> <span className="text-yellow-400 ml-2">{asteroid.distance}</span>
+                  </div>
                 </div>
 
                 <div className="border-t border-gray-600 pt-4 space-y-2">
-                  <div className="flex justify-between"><span className="text-gray-400">Diameter:</span><span className="text-blue-400">{asteroid.diameter}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Velocity:</span><span className="text-purple-400">{asteroid.velocity}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Orbital Period:</span><span className="text-indigo-400">{asteroid.orbitalPeriod}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Magnitude:</span><span className="text-pink-400">{asteroid.magnitude}</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Potentially Hazardous:</span><span className={asteroid.isPotentiallyHazardous ? "text-red-400" : "text-green-400"}>{asteroid.isPotentiallyHazardous ? "Yes" : "No"}</span></div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Diameter:</span>
+                    <span className="text-blue-400">{asteroid.diameter}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Velocity:</span>
+                    <span className="text-purple-400">{asteroid.velocity}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Orbital Period:</span>
+                    <span className="text-indigo-400">{asteroid.orbitalPeriod}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Magnitude:</span>
+                    <span className="text-pink-400">{asteroid.magnitude}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Potentially Hazardous:</span>
+                    <span className={asteroid.isPotentiallyHazardous ? "text-red-400" : "text-green-400"}>
+                      {asteroid.isPotentiallyHazardous ? "Yes" : "No"}
+                    </span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
+        {/* No Data Fallback */}
         {asteroids.length === 0 && (
-          <Card className="bg-black/30 border-orange-500/30 backdrop-blur-md">
+          <Card className="bg-black/30 border-orange-500/30 backdrop-blur-md mt-8 max-w-xl mx-auto">
             <CardContent className="text-center py-12">
               <p className="text-white text-lg">No asteroid data available for the selected date.</p>
               <p className="text-gray-400 mt-2">Try selecting a different date.</p>
@@ -161,6 +197,7 @@ const AsteroidsDetail = () => {
       </div>
     </div>
   );
+
 };
 
 export default AsteroidsDetail;

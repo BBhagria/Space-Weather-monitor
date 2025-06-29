@@ -23,24 +23,27 @@ const APODSection = () => {
   }, []);
 
   return (
-        <section
+    <section
       id="apod"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 to-black px-4 font-light"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 to-black px-4 md:px-6 font-light"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-6xl md:text-8xl text-white mb-6 tracking-tight font-light">
+      <div className="max-w-6xl w-full mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-12 animate-fade-in px-2">
+          <h2 className="text-4xl md:text-6xl lg:text-8xl text-white mb-6 tracking-tight font-light">
             Astronomy Picture of the Day
           </h2>
-          <p className="text-2xl md:text-3xl text-white/90 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
             Discover the cosmos with NASA's daily featured astronomy image
           </p>
         </div>
 
+        {/* APOD Card */}
         {!loading && apodData ? (
           <Card className="bg-black/30 border-yellow-500/30 backdrop-blur-sm overflow-hidden hover:bg-black/40 transition-all duration-300 hover:scale-[1.02] font-light">
-            <div className="md:flex">
-              <div className="md:w-1/2">
+            <div className="flex flex-col md:flex-row">
+              {/* Image or Video */}
+              <div className="w-full md:w-1/2">
                 {apodData.media_type === 'image' ? (
                   <img
                     src={apodData.url}
@@ -56,12 +59,16 @@ const APODSection = () => {
                   />
                 )}
               </div>
-              <div className="md:w-1/2 p-6">
+
+              {/* Text Content */}
+              <div className="w-full md:w-1/2 p-6">
                 <CardHeader className="p-0 mb-4">
                   <CardTitle className="text-yellow-400 text-2xl mb-2 font-light">
                     {apodData.title}
                   </CardTitle>
-                  <CardDescription className="text-gray-400 font-light">{apodData.date}</CardDescription>
+                  <CardDescription className="text-gray-400 font-light">
+                    {apodData.date}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="p-0">
                   <p className="text-gray-300 leading-relaxed mb-6 font-light">
@@ -77,6 +84,7 @@ const APODSection = () => {
             </div>
           </Card>
         ) : (
+          // Loading Skeleton
           <div className="text-center">
             <div className="animate-pulse">
               <div className="bg-gray-700 h-64 rounded-lg mb-4"></div>
@@ -87,8 +95,8 @@ const APODSection = () => {
         )}
       </div>
     </section>
-
   );
+
 };
 
 export default APODSection;

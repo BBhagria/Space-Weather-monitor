@@ -78,6 +78,7 @@ const AsteroidMonitorSection = () => {
       <div className="absolute inset-0 bg-black/50"></div>
 
       <div className="max-w-6xl mx-auto flex flex-col justify-between min-h-screen relative z-30">
+        {/* Heading Section */}
         <div className="text-center pt-24 animate-fade-in">
           <h2 className="text-6xl md:text-8xl font-light text-white mb-6 tracking-tight">
             Asteroid Monitor
@@ -93,9 +94,11 @@ const AsteroidMonitorSection = () => {
           </Button>
         </div>
 
-        <div className="pb-16 relative">
-          <div className="flex justify-between items-end max-w-6xl mx-auto">
-            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden w-80">
+        {/* Cards Section */}
+        <div className="pb-16">
+          <div className="grid md:grid-cols-2 gap-6 mb-8 justify-between">
+            {/* Near-Earth Objects Card */}
+            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden scale-90 w-full max-w-sm mx-auto md:mx-0">
               <CardHeader className="pb-3 bg-gradient-to-br from-purple-600/20 to-pink-600/20">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
@@ -121,7 +124,8 @@ const AsteroidMonitorSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden w-80">
+            {/* Impact Risk Assessment Card */}
+            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden scale-90 w-full max-w-sm mx-auto md:mx-0">
               <CardHeader className="pb-3 bg-gradient-to-br from-green-600/20 to-emerald-600/20">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
@@ -149,6 +153,7 @@ const AsteroidMonitorSection = () => {
       </div>
     </section>
   );
+
 };
 
 export default AsteroidMonitorSection;

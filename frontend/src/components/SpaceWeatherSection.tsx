@@ -51,18 +51,21 @@ const SpaceWeatherSection = () => {
       <div className="absolute inset-0 bg-black/40"></div>
       
       <div className="max-w-6xl mx-auto flex flex-col justify-between min-h-screen relative z-10">
-        <div className="text-center pt-24 animate-fade-in">
-          <h2 className="text-6xl md:text-8xl font-light text-white mb-6 tracking-tight">
+        {/* Heading */}
+        <div className="text-center pt-24 animate-fade-in px-4">
+          <h2 className="text-4xl md:text-8xl font-light text-white mb-6 tracking-tight leading-tight">
             Space Weather
           </h2>
-          <p className="text-2xl md:text-3xl text-white/90 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
+          <p className="text-xl md:text-3xl text-white/90 mb-12 max-w-4xl mx-auto font-light leading-relaxed">
             Monitor solar storms and space conditions.
           </p>
         </div>
 
-        <div className="pb-16">
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden scale-75">
+        {/* Cards */}
+        <div className="pb-16 px-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {/* Solar Flares */}
+            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden w-full max-w-sm mx-auto">
               <CardHeader className="pb-3 bg-gradient-to-br from-orange-600/20 to-red-600/20">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
@@ -89,7 +92,8 @@ const SpaceWeatherSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden scale-75">
+            {/* Geomagnetic Field */}
+            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden w-full max-w-sm mx-auto">
               <CardHeader className="pb-3 bg-gradient-to-br from-green-600/20 to-blue-600/20">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
@@ -116,7 +120,8 @@ const SpaceWeatherSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden scale-75">
+            {/* Cosmic Radiation */}
+            <Card className="bg-black/70 border-none backdrop-blur-xl hover:bg-black/80 transition-all duration-300 hover:scale-105 rounded-xl overflow-hidden w-full max-w-sm mx-auto">
               <CardHeader className="pb-3 bg-gradient-to-br from-blue-600/20 to-purple-600/20">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
@@ -144,6 +149,7 @@ const SpaceWeatherSection = () => {
             </Card>
           </div>
 
+          {/* Button */}
           <div className="text-center">
             <Button
               onClick={handleLearnMore}
